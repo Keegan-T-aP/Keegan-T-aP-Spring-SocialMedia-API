@@ -1,4 +1,4 @@
-package com.example.Model;
+package com.example.Message;
 
 import javax.persistence.*;
 

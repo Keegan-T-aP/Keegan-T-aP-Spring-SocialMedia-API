@@ -1,25 +1,17 @@
 package com.example.Controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
-import com.example.Service.AccountService;
-import com.example.Service.MessageService;
-import org.springframework.web.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import com.example.Account.AccountService;
+import com.example.Message.MessageService;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.Model.Account;
-import com.example.Model.Message;
-
-import com.example.Repository.*;
+import com.example.Account.Account;
+import com.example.Message.Message;
 
 /**
- * TODO: You will need to write your own endpoints and handlers for your controller. The endpoints you will need can be
+ * TODO: You will need to write your own endpoints and handlers for your controller using Spring. The endpoints you will need can be
  * found in readme.md as well as the test cases. You should
  * refer to prior mini-project labs and lecture materials for guidance on how a controller may be built.
  */
@@ -47,7 +39,7 @@ public class SocialMediaController {
     }
 
     @GetMapping("/accounts/{account_id}/messages")
-    ArrayList<Message> getMesageByAccount(@PathVariable int posted_by) {
+    ArrayList<Message> getMessageByAccount(@PathVariable int posted_by) {
         return messageService.getMessageByAccount(posted_by);
     }
 
