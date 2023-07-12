@@ -1,22 +1,14 @@
 package com.example.Controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
-import com.example.Service.AccountService;
-import com.example.Service.MessageService;
-import org.springframework.web.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import com.example.Account.AccountService;
+import com.example.Message.MessageService;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.Model.Account;
-import com.example.Model.Message;
-
-import com.example.Repository.*;
+import com.example.Account.Account;
+import com.example.Message.Message;
 
 /**
  * TODO: You will need to write your own endpoints and handlers for your controller. The endpoints you will need can be

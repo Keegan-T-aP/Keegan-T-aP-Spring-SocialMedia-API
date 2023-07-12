@@ -1,11 +1,9 @@
-package com.example.Service;
+package com.example.Account;
 
-import com.example.Repository.AccountRepository;
-import com.example.Model.Account;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.Account.AccountRepository;
+import com.example.Account.Account;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 @Service
 public class AccountService {
 

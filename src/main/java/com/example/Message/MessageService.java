@@ -1,7 +1,7 @@
-package com.example.Service;
+package com.example.Message;
 
-import com.example.Model.Message;
-import com.example.Repository.MessageRepository;
+import com.example.Message.Message;
+import com.example.Message.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
