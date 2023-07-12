@@ -39,7 +39,7 @@ public class SocialMediaController {
     }
 
     @GetMapping("/accounts/{account_id}/messages")
-    ArrayList<Message> getMesageByAccount(@PathVariable int posted_by) {
+    ArrayList<Message> getMessageByAccount(@PathVariable int posted_by) {
         return messageService.getMessageByAccount(posted_by);
     }
 
