@@ -1,5 +1,6 @@
 package com.example.Controller;
 
+
 import java.util.ArrayList;
 
 
@@ -19,6 +20,7 @@ import com.example.Message.Message;
 @RestController
 public class SocialMediaController {
 
+
     private final AccountService accountService;
     private final MessageService messageService;
 
@@ -34,7 +36,6 @@ public class SocialMediaController {
 
     @GetMapping("/messages/{message_id}")
     public @ResponseBody Message getMessageByID(@PathVariable int message_id) {
-        System.out.println("You have reached me!");
     return messageService.getMessageByID(message_id);
     }
 
@@ -43,9 +44,9 @@ public class SocialMediaController {
         return messageService.getMessageByAccount(posted_by);
     }
 
-    @PostMapping("/register")
-    void registerAccount(String username, String password) {
-    accountService.registerAccount(username, password);
+    @GetMapping("/register/{username}")
+    void registerAccount(@PathVariable String username, String password) {
+    accountService.registerAccount(username, "123");
     }
 
     @PostMapping("/messages")

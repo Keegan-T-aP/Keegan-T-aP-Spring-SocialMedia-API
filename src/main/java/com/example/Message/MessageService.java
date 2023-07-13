@@ -19,7 +19,6 @@ public class MessageService {
     }
 
     public Message getMessageByID(int message_id) {
-        System.out.println("This is in service");
         return messageRepository.getMessageByID(message_id);}
 
     public ArrayList<Message> getAllMessages() { return messageRepository.getAllMessages();}
