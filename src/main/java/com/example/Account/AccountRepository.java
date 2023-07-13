@@ -9,7 +9,7 @@ import com.example.Account.Account;
 
 @Repository
 public interface AccountRepository extends CrudRepository<Account, Integer> {
-    @Query (value = "SELECT SELECT * FROM account WHERE username = ?1 AND password = password", nativeQuery = true)
+    @Query (value = "SELECT * FROM account WHERE username = ?1 AND password = password", nativeQuery = true)
     Account login(String username, String password);
 
     @Modifying
