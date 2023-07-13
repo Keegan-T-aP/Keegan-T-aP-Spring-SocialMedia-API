@@ -1,7 +1,7 @@
-package com.example.Account;
+package com.example.account;
 
-import com.example.Account.AccountRepository;
-import com.example.Account.Account;
+import com.example.account.AccountRepository;
+import com.example.account.Account;
 import org.springframework.stereotype.Service;
 
 @Service

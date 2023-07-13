@@ -1,15 +1,15 @@
-package com.example.Controller;
+package com.example.controller;
 
 
 import java.util.ArrayList;
 
 
-import com.example.Account.AccountService;
-import com.example.Message.MessageService;
+import com.example.account.AccountService;
+import com.example.message.MessageService;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.Account.Account;
-import com.example.Message.Message;
+import com.example.account.Account;
+import com.example.message.Message;
 
 /**
  * TODO: You will need to write your own endpoints and handlers for your controller using Spring. The endpoints you will need can be

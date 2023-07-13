@@ -1,11 +1,11 @@
-package com.example.Account;
+package com.example.account;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.Account.Account;
+import com.example.account.Account;
 
 @Repository
 public interface AccountRepository extends CrudRepository<Account, Integer> {
