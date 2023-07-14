@@ -2,11 +2,15 @@
 
 ## Background 
 
+Full-stack applications are typically concerned with both a front end, that displays information to the user and takes in input, and a backend, that manages persisted information.
 
+This project will be a backend for a hypothetical social media app, where we must manage our users’ accounts as well as any messages that they submit to the application. However, the functionality for this project will leverage a popular web application framework for Java known as Spring. The Spring framework allows for automatic injection and configuration of many features, including data persitence, endpoints and conventional data manipulation logic (CRUD operations).
+
+In our hypothetical micro-blogging or messaging app, any user should be able to see all of the messages posted to the site, or they can see the messages posted by a particular user. In either case, we require a backend which is able to deliver the data needed to display this information as well as process actions like logins, registrations, message creations, message updates, and message deletions.
 
 ## Database Tables 
 
-
+The following tables will be initialized in your project's built-in database upon startup using the configuration details in the application.properties file and the provided SQL script.
 
 ### Account
 ```
@@ -80,7 +84,14 @@ As a user, I should be able to submit a GET request on the endpoint GET localhos
 
 - The response body should contain a JSON representation of a list containing all messages posted by a particular user, which is retrieved from the database. It is expected for the list to simply be empty if there are no messages. The response status should always be 200, which is the default.
 
-## 9: Our API Leverages the Spring Framework
+## 9: Project leverages Spring Boot Framework
+As a developer, I see that the project uses the Spring framework to inject dependencies and autowire functionality using Spring annotations.
+
+- The '@RestController' annotation is used to designate the main controller for the project
+- The '@GetMapping' and '@PostMapping' annotations are used designate endpoints and reponses defined for those endpoints
+- The '@Service' annotation is used to designate the service class which performs various actions
+- The '@Repository' annotation is used to designate methods which communicate to the database
+- The '@Query' annotation is used to define repository methods which
 
 
 
