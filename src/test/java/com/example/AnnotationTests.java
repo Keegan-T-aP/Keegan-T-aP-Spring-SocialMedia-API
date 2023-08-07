@@ -138,13 +138,13 @@ class AnnotationTests {
 		try {
 			m = smc.getDeclaredMethod("login", String.class, String.class);
 			for (Annotation an : m.getDeclaredAnnotations()) {
-				if (an instanceof GetMapping) annotationIsPresent = true;
+				if (an instanceof PostMapping) annotationIsPresent = true;
 			}
 		} catch (NoSuchMethodException e) {
 			fail("login() method not found in SocialMediaController class. Review your method spelling and parameter list. Refer back to your instructions for more details.");
 		}
 		
-		assertTrue(annotationIsPresent, "SocialMediaController - login() method missing @GetMapping annotation.");
+		assertTrue(annotationIsPresent, "SocialMediaController - login() method missing @PostMapping annotation.");
 	}
 	
 	@Test
