@@ -136,7 +136,7 @@ class AnnotationTests {
 		boolean annotationIsPresent = false;
 		
 		try {
-			m = smc.getDeclaredMethod("login", String.class, String.class);
+			m = smc.getDeclaredMethod("login", Account.class);
 			for (Annotation an : m.getDeclaredAnnotations()) {
 				if (an instanceof PostMapping) annotationIsPresent = true;
 			}
