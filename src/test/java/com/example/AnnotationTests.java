@@ -18,10 +18,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.account.AccountRepository;
+import com.example.account.Account;
 import com.example.account.AccountService;
 import com.example.controller.SocialMediaController;
 import com.example.message.MessageRepository;
 import com.example.message.MessageService;
+import com.example.message.Message;
+
+
 
 @SpringBootTest
 class AnnotationTests {
