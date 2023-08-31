@@ -11,7 +11,15 @@ import org.springframework.web.bind.annotation.*;
  * where applicable as well as the @ResponseBody and @PathVariable annotations. You should
  * refer to prior mini-project labs and lecture materials for guidance on how a controller may be built.
  *
- * You are expected to have at least the following methods: getAllMessages, getMessageByID, getMessageByAccount, registerAccount, newMessage, login, deleteMessage.
+ * You are expected to have the following methods: 
+ *	getAllMessages
+ *	getMessageByID
+ *	getMessageByAccount
+ *	registerAccount 
+ *	newMessage
+ *	login
+ *	deleteMessage
+ *	updateMessage
  * 
  * These methods should follow proper naming conventions, and include appropriate arguments. Refer to the tests provided for more details.
  */

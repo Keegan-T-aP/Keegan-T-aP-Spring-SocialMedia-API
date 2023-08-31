@@ -16,14 +16,15 @@ import static org.springframework.boot.SpringApplication.run;
  * DO NOT CHANGE ANYTHING IN THIS CLASS
  *
  */
-
 @SpringBootApplication
 @EnableAutoConfiguration
-@Controller
-
 public class SocialMediaApp {
-
-    public static void main(String[] args) {
+    /**
+     * Runs the application
+     * @param args The arguments of the program.
+     * @throws InterruptedException 
+     */
+    public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(SocialMediaApp.class, args);
     }
 

@@ -14,18 +14,17 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.account.AccountRepository;
 import com.example.account.Account;
+import com.example.account.AccountRepository;
 import com.example.account.AccountService;
 import com.example.controller.SocialMediaController;
+import com.example.message.Message;
 import com.example.message.MessageRepository;
 import com.example.message.MessageService;
-import com.example.message.Message;
-
-
 
 @SpringBootTest
 class AnnotationTests {
@@ -68,7 +67,7 @@ class AnnotationTests {
 		boolean annotationIsPresent = false;
 		
 		try {
-			m = smc.getDeclaredMethod("getMessageByID", int.class);
+			m = smc.getDeclaredMethod("getMessageByID", Integer.class);
 			for (Annotation an : m.getDeclaredAnnotations()) {
 				if (an instanceof GetMapping) annotationIsPresent = true;
 			}
@@ -86,7 +85,7 @@ class AnnotationTests {
 		boolean annotationIsPresent = false;
 		
 		try {
-			m = smc.getDeclaredMethod("getMessageByAccount", int.class);
+			m = smc.getDeclaredMethod("getMessageByAccount", Integer.class);
 			for (Annotation an : m.getDeclaredAnnotations()) {
 				if (an instanceof GetMapping) annotationIsPresent = true;
 			}
@@ -104,7 +103,7 @@ class AnnotationTests {
 		boolean annotationIsPresent = false;
 		
 		try {
-			m = smc.getDeclaredMethod("registerAccount", String.class, String.class);
+			m = smc.getDeclaredMethod("registerAccount", Account.class);
 			for (Annotation an : m.getDeclaredAnnotations()) {
 				if (an instanceof PostMapping) annotationIsPresent = true;
 			}
@@ -122,7 +121,7 @@ class AnnotationTests {
 		boolean annotationIsPresent = false;
 		
 		try {
-			m = smc.getDeclaredMethod("newMessage", int.class, String.class, long.class);
+			m = smc.getDeclaredMethod("newMessage", Message.class);
 			for (Annotation an : m.getDeclaredAnnotations()) {
 				if (an instanceof PostMapping) annotationIsPresent = true;
 			}
@@ -158,7 +157,7 @@ class AnnotationTests {
 		boolean annotationIsPresent = false;
 		
 		try {
-			m = smc.getDeclaredMethod("deleteMessage", int.class);
+			m = smc.getDeclaredMethod("deleteMessage", Integer.class);
 			for (Annotation an : m.getDeclaredAnnotations()) {
 				if (an instanceof DeleteMapping) annotationIsPresent = true;
 			}
@@ -167,6 +166,24 @@ class AnnotationTests {
 		}
 		
 		assertTrue(annotationIsPresent, "SocialMediaController - deleteMessage() method missing @DeleteMapping annotation.");
+	}
+	
+	@Test
+	void controllerUpdateMessageMethodAnnotationsTest () throws SecurityException {
+		Class<SocialMediaController> smc = SocialMediaController.class;
+		Method m;
+		boolean annotationIsPresent = false;
+		
+		try {
+			m = smc.getDeclaredMethod("updateMessage", Message.class);
+			for (Annotation an : m.getDeclaredAnnotations()) {
+				if (an instanceof PatchMapping) annotationIsPresent = true;
+			}
+		} catch (NoSuchMethodException e) {
+			fail("updateMessage() method not found in SocialMediaController class. Review your method spelling and parameter list. Refer back to your instructions for more details.");
+		}
+		
+		assertTrue(annotationIsPresent, "SocialMediaController - updateMessage() method missing @PatchMapping annotation.");
 	}
 	
 	/* ACCOUNT REPOSITORY INTERFACE */
@@ -194,24 +211,6 @@ class AnnotationTests {
 		assertTrue(annotationIsPresent, "AccountRepository - login() method missing @Query annotation.");
 	}
 	
-	@Test
-	void accountRepositoryRegisterAccountMethodAnnotationsTest () throws SecurityException {
-		Class<AccountRepository> ar = AccountRepository.class;
-		Method m;
-		boolean annotationIsPresent = false;
-		
-		try {
-			m = ar.getDeclaredMethod("registerAccount", String.class, String.class);
-			for (Annotation an : m.getDeclaredAnnotations()) {
-				if (an instanceof Query) annotationIsPresent = true;
-			}
-		} catch (NoSuchMethodException e) {
-			fail("registerAccount() method not found in AccountRepository interface. Review your method spelling and parameter list. Refer back to your instructions for more details.");
-		}
-		
-		assertTrue(annotationIsPresent, "AccountRepository - registerAccount() method missing @Query annotation.");
-	}
-	
 	/* ACCOUNT SERVICE CLASS */
 	@Test
 	void accountServiceClassAnnotationsTest() {
@@ -224,24 +223,6 @@ class AnnotationTests {
 	void messageRespositoryInterfaceAnnotationsTest() {
 		Class<MessageRepository> mr = MessageRepository.class;
 		assertTrue(mr.isAnnotationPresent(Repository.class), "@Repository annotation is missing from Message Repository interface");
-	}
-	
-	@Test
-	void messageRepositoryNewMessageMethodAnnotationsTest () throws SecurityException {
-		Class<MessageRepository> mr = MessageRepository.class;
-		Method m;
-		boolean annotationIsPresent = false;
-		
-		try {
-			m = mr.getDeclaredMethod("newMessage", int.class, String.class, long.class);
-			for (Annotation an : m.getDeclaredAnnotations()) {
-				if (an instanceof Query) annotationIsPresent = true;
-			}
-		} catch (NoSuchMethodException e) {
-			fail("newMessage() method not found in MessageRepository interface. Review your method spelling and parameter list. Refer back to your instructions for more details.");
-		}
-		
-		assertTrue(annotationIsPresent, "MessageRepository - newMessage() method is missing @Query annotation.");
 	}
 	
 	@Test
@@ -269,7 +250,7 @@ class AnnotationTests {
 		boolean annotationIsPresent = false;
 		
 		try {
-			m = mr.getDeclaredMethod("getMessageByID", int.class);
+			m = mr.getDeclaredMethod("getMessageByID", Integer.class);
 			for (Annotation an : m.getDeclaredAnnotations()) {
 				if (an instanceof Query) annotationIsPresent = true;
 			}
@@ -287,7 +268,7 @@ class AnnotationTests {
 		boolean annotationIsPresent = false;
 		
 		try {
-			m = mr.getDeclaredMethod("getMessageByAccount", int.class);
+			m = mr.getDeclaredMethod("getMessageByAccount", Integer.class);
 			for (Annotation an : m.getDeclaredAnnotations()) {
 				if (an instanceof Query) annotationIsPresent = true;
 			}
@@ -305,7 +286,7 @@ class AnnotationTests {
 		boolean annotationIsPresent = false;
 		
 		try {
-			m = mr.getDeclaredMethod("updateMessage", String.class, int.class);
+			m = mr.getDeclaredMethod("updateMessage", String.class, Integer.class);
 			for (Annotation an : m.getDeclaredAnnotations()) {
 				if (an instanceof Query) annotationIsPresent = true;
 			}
@@ -323,7 +304,7 @@ class AnnotationTests {
 		boolean annotationIsPresent = false;
 		
 		try {
-			m = mr.getDeclaredMethod("deleteMessage", int.class);
+			m = mr.getDeclaredMethod("deleteMessage", Integer.class);
 			for (Annotation an : m.getDeclaredAnnotations()) {
 				if (an instanceof Query) annotationIsPresent = true;
 			}
@@ -334,7 +315,7 @@ class AnnotationTests {
 		assertTrue(annotationIsPresent, "MessageRepository - deleteMessage() method is missing @Query annotation.");
 	}
 	
-	/* MESSAGE REPOSITORY INTERFACE */
+	/* MESSAGE SERVICE CLASS */
 	@Test
 	void messageServiceClassAnnotationsTest() {
 		Class<MessageService> ms = MessageService.class;
