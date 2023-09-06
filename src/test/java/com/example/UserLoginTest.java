@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 
-import com.example.account.Account;
+import com.example.entity.Account;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class UserLoginTest {

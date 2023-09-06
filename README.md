@@ -28,6 +28,20 @@ time_posted_epoch long,
 foreign key (posted_by) references Account(account_id)
 ```
 
+# Spring Technical Requirement
+
+## Project must leverage the Spring Boot Framework
+
+Java classes have been provided, but your entire project MUST leverage the Spring framework.
+In addition to functional test cases, "SpringTest" will verify that you have leveraged the Spring framework, Spring Boot, Spring MVC, and Spring Data.
+SpringTest will verify the following
+
+ - That you have, by any means, have a bean for the AccountService, MessageService, AccountRepository, MessageRepository, and SocialMediaController classes
+ - That AccountRepository and MessageRepository are working JPARepositories based on their corresponding Account and Message entities
+ - That your Spring Boot app leverages MVC by checking for Spring's default error message structure.
+ 
+The app will already be a Spring Boot app with a valid application.properties and valid database entities at the start.
+
 # User Stories
 
 ## 1: Our API should be able to process new User registrations.
@@ -83,15 +97,5 @@ As a user, I should be able to submit a PATCH request on the endpoint PATCH loca
 As a user, I should be able to submit a GET request on the endpoint GET localhost:8080/accounts/{account_id}/messages.
 
 - The response body should contain a JSON representation of a list containing all messages posted by a particular user, which is retrieved from the database. It is expected for the list to simply be empty if there are no messages. The response status should always be 200, which is the default.
-
-## 9: Project leverages Spring Boot Framework
-As a developer, I see that the project uses the Spring framework to inject dependencies and autowire functionality using Spring annotations.
-
-- The '@RestController' annotation is used to designate the main controller for the project
-- The '@GetMapping', '@PostMapping', '@DeleteMapping' and '@PatchMapping' annotations are used designate endpoints and reponses defined for those endpoints as appropriate
-- The '@Service' annotation is used to designate the service class which performs various actions
-- The '@Repository' annotation is used to designate methods which communicate to the database
-- The '@Query' annotation is used to define repository methods which retrieve data from the database
-
 
 # Good luck!

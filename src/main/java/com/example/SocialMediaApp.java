@@ -17,7 +17,6 @@ import static org.springframework.boot.SpringApplication.run;
  *
  */
 @SpringBootApplication
-@EnableAutoConfiguration
 public class SocialMediaApp {
     /**
      * Runs the application
@@ -26,10 +25,5 @@ public class SocialMediaApp {
      */
     public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(SocialMediaApp.class, args);
-    }
-
-    @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder builder) {
-        return builder.build();
     }
 }
