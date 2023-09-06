@@ -17,7 +17,6 @@ import static org.springframework.boot.SpringApplication.run;
  *
  */
 @SpringBootApplication
-@EnableAutoConfiguration
 public class SocialMediaApp {
     /**
      * Runs the application

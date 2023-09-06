@@ -1,12 +1,12 @@
-package com.example.message;
+package com.example.entity;
 
 import javax.persistence.*;
 
 /**
  * This is a class that models a Message.
  *
- * DO NOT CHANGE ANYTHING IN THIS CLASS
- *
+ * You MUST make this class an ORM Entity with Spring Data.
+ * You should NOT change the fields of this class, or add any new fields.
  */
 @Entity
 @Table(name="message")

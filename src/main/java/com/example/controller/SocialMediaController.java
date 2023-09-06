@@ -1,7 +1,7 @@
 package com.example.controller;
 
 
-import java.util.ArrayList;
+import com.example.entity.Account;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -23,10 +23,9 @@ import org.springframework.web.bind.annotation.*;
  * 
  * These methods should follow proper naming conventions, and include appropriate arguments. Refer to the tests provided for more details.
  */
-@RestController
 public class SocialMediaController {
+    @PostMapping("/register")
+    public void register(@RequestBody Account account){
 
-
-
-
+    }
 }
