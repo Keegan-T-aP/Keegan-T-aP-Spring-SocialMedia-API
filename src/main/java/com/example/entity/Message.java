@@ -5,8 +5,7 @@ import javax.persistence.*;
 /**
  * This is a class that models a Message.
  *
- * You MUST make this class an ORM Entity with Spring Data.
- * You should NOT change the fields of this class, or add any new fields.
+ * You should NOT make any modifications to this class.
  */
 @Entity
 @Table(name="message")

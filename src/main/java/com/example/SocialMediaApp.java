@@ -26,9 +26,4 @@ public class SocialMediaApp {
     public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(SocialMediaApp.class, args);
     }
-
-    @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder builder) {
-        return builder.build();
-    }
 }
