@@ -10,7 +10,7 @@ import com.example.repository.AccountRepository;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Optional;
-// commit fix
+
 @Service
 public class MessageService {
     AccountRepository accountRepository;
@@ -30,15 +30,15 @@ public class MessageService {
         if (!accOp.isPresent()) {
             return null;
         }
-        return msgRepo.save(msg);
+        return messageRepository.save(msg);
     }
 
     public List<Message> getAllMessages() {
-        return msgRepo.findAll();
+        return messageRepository.findAll();
     }
 
     public Message getMessageById(int id) {
-        Optional<Message> msg = msgRepo.findById(id);
+        Optional<Message> msg = messageRepository.findById(id);
         if (msg.isPresent()) {
             return msg.get();
         }
@@ -46,10 +46,10 @@ public class MessageService {
     }
 
     public Message deleteMessageById(int id) {
-        Optional<Message> msg = msgRepo.findById(id);
+        Optional<Message> msg = messageRepository.findById(id);
         if (msg.isPresent()) {
             Message nmsg = msg.get();
-            msgRepo.deleteById(id);
+            messageRepository.deleteById(id);
             return nmsg;
         }
         return null;
@@ -64,11 +64,11 @@ public class MessageService {
             return null;
         }
 
-        Optional<Message> message = msgRepo.findById(id);
+        Optional<Message> message = messageRepository.findById(id);
         if (message.isPresent()) {
             Message msg = message.get();
             msg.setMessage_text(text);
-            msgRepo.save(msg);
+            messageRepository.save(msg);
             return msg;
         }
 
@@ -76,7 +76,7 @@ public class MessageService {
     }
 
     public List<Message> getAllMessagesFromUser(int id) {
-        List<Message> allMessages = msgRepo.findAll();
+        List<Message> allMessages = messageRepository.findAll();
         List<Message> userMessages = new LinkedList<Message>();
 
         for (int i = 0; i < allMessages.size(); i++) {
